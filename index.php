@@ -18,13 +18,14 @@
     </form>
     <?php
         $first_mark = !empty($_POST['firstMark']) ? $_POST['firstMark'] : '';
-        $second_mark = !empty($_POST['secondMark']) ? $_POST['firstMark'] : '';
+        $second_mark = !empty($_POST['secondMark']) ? $_POST['secondMark'] : '';
         $text = 'Enter marks';
         if (!empty($first_mark) && !empty($second_mark)) {
             if ($first_mark == 1 || $second_mark == 1) {
                 $text = 'Final mark is: 1';
             } else {
-                $text = 'Final mark is: ' . ($_POST['firstMark'] + $_POST['secondMark']) / 2;
+                $final_mark = ($first_mark + $second_mark) / 2;
+                $text = 'Final mark is: ' . $final_mark;
             }
         }
         echo '<span>' . $text . '</span>';
